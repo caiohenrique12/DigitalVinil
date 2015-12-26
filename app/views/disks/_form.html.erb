@@ -32,8 +32,8 @@
     <%= f.date_select :recording_year %>
   </div>
   <div class="field">
-    <%= f.label :status_id %><br>
-    <%= f.number_field :status_id %>
+    <%= f.label :state_id %><br>
+    <%= f.select :state_id, State.all.collect{|c| [c.name, c.id]}, prompt: 'Selecione' %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -23,7 +23,7 @@
         <td><%= disk.author %></td>
         <td><%= disk.price %></td>
         <td><%= disk.recording_year %></td>
-        <td><%= disk.status_id %></td>
+        <td><%= disk.state.name %></td>
         <td><%= link_to 'Show', disk %></td>
         <td><%= link_to 'Edit', edit_disk_path(disk) %></td>
         <td><%= link_to 'Destroy', disk, method: :delete, data: { confirm: 'Are you sure?' } %></td>
