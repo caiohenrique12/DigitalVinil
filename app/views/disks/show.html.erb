@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @disk.name %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @disk.author %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @disk.price %>
+</p>
+
+<p>
+  <strong>Recording year:</strong>
+  <%= @disk.recording_year %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @disk.status_id %>
+</p>
+
+<%= link_to 'Edit', edit_disk_path(@disk) %> |
+<%= link_to 'Back', disks_path %>
