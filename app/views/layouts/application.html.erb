@@ -7,7 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<ul style="display: inline; padding: 15px;">
+  <li><%= link_to 'Home', root_path %></li>
+  <li><%= link_to 'Cadastrar Disco', new_disk_path %></li>
+  <li><%= link_to 'Cad. Estado Conservação', new_state_path %></li>
+</ul>
 <%= yield %>
 
 </body>
