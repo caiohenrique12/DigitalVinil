@@ -1,0 +1,13 @@
+<% @disks.each do |disk| %>
+  <p>
+    <%= image_tag disk.image.url(:medium), class: 'img-responsive' %>
+  </p>
+  <p>
+    <%= disk.name %>
+  </p>
+  <p>
+    <%= number_to_currency disk.price %>
+  </p>
+
+  <%= link_to "Detalhes", controller: "disks", action: "show", id: disk %>
+<% end %>
