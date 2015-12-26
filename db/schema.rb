@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20151226180224) do
     t.string   "author"
     t.decimal  "price"
     t.date     "recording_year"
-    t.integer  "status_id"
+    t.integer  "state_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "image_file_name"

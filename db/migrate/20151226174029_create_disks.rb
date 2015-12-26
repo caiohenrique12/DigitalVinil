@@ -5,7 +5,7 @@ class CreateDisks < ActiveRecord::Migration
       t.string :author
       t.decimal :price
       t.date :recording_year
-      t.integer :status_id
+      t.integer :state_id
 
       t.timestamps null: false
     end
