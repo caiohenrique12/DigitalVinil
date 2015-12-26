@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>#</th>
       <th>Name</th>
       <th>Author</th>
       <th>Price</th>
@@ -17,6 +18,7 @@
   <tbody>
     <% @disks.each do |disk| %>
       <tr>
+        <td><%= image_tag disk.image.url(:thumb) %></td>
         <td><%= disk.name %></td>
         <td><%= disk.author %></td>
         <td><%= disk.price %></td>

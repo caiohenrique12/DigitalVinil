@@ -69,6 +69,6 @@ class DisksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def disk_params
-      params.require(:disk).permit(:name, :author, :price, :recording_year, :status_id)
+      params.require(:disk).permit(:name, :author, :image, :price, :recording_year, :status_id)
     end
 end
