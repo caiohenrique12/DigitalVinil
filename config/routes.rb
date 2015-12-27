@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :orders
+  resources :comments
   resources :states
   resources :disks
   resources :home
