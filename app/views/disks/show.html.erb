@@ -15,8 +15,13 @@
 </p>
 
 <p>
+  <strong>Local de Entrega:</strong>
+  <%= @disk.address %>
+</p>
+
+<p>
   <strong>Price:</strong>
-  <%= @disk.price %>
+  <%= number_to_currency @disk.price %>
 </p>
 
 <p>
@@ -29,27 +34,31 @@
   <%= @disk.state.name %>
 </p>
 
-<%= link_to 'Edit', edit_disk_path(@disk) %> |
-<%= link_to 'Back', disks_path %>
-
-<%= form_for Order.new do |f| %>
-  <span>Interessado pelo produto ? Digite aqui seu email para entrarmos em
-  contato com vocẽ.</span>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.hidden_field :disk_id, :value => @disk.id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
-<%= Comment.coment_usuario(@disk.id).each do |comment|  %>
 <fieldset>
-  <legend>Comentários:</legend>
+  <legend>Entre em contato:</legend>
+  <%= form_for Order.new do |f| %>
+    <span>Interessado pelo produto ? Digite aqui seu email para entrarmos em
+    contato com vocẽ.</span>
+    <div class="field">
+      <%= f.label :name, "Seu Nome" %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :email %><br>
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= f.hidden_field :disk_id, :value => @disk.id %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</fieldset>
+
+<% Comment.coment_usuario(@disk.id).each do |comment|  %>
+<fieldset>
+  <legend><%= comment.name %> disse:</legend>
     <%= comment.text %><br>
     <%= comment.created_at %>
 </fieldset>
@@ -57,7 +66,11 @@
 
 <%= form_for Comment.new do |f| %>
   <div class="field">
-    <%= f.label :text %><br>
+    <%= f.label :name, "Nome" %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :text, "Escrever Algo" %><br>
     <%= f.text_area :text %>
   </div>
   <div class="field">
@@ -67,3 +80,6 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<%= link_to 'Edit', edit_disk_path(@disk) %> |
+<%= link_to 'Back', disks_path %>

@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20151227021910) do
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
+    t.string   "name"
     t.text     "text"
     t.integer  "disk_id"
     t.datetime "created_at", null: false
@@ -26,6 +27,9 @@ ActiveRecord::Schema.define(version: 20151227021910) do
   create_table "disks", force: :cascade do |t|
     t.string   "name"
     t.string   "author"
+    t.string   "address"
+    t.string   "longitude"
+    t.string   "latitude"
     t.decimal  "price"
     t.date     "recording_year"
     t.integer  "state_id"
@@ -38,6 +42,7 @@ ActiveRecord::Schema.define(version: 20151227021910) do
   end
 
   create_table "orders", force: :cascade do |t|
+    t.string   "name"
     t.string   "email"
     t.integer  "disk_id"
     t.datetime "created_at", null: false

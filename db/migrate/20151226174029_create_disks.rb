@@ -3,6 +3,9 @@ class CreateDisks < ActiveRecord::Migration
     create_table :disks do |t|
       t.string :name
       t.string :author
+      t.string :address
+      t.string :longitude
+      t.string :latitude
       t.decimal :price
       t.date :recording_year
       t.integer :state_id
