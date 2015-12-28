@@ -36,6 +36,10 @@
     <%= f.date_select :recording_year %>
   </div>
   <div class="field">
+    <%= f.label :available %><br>
+    <%= f.text_field :available, placeholder: 'Venda ou Troca' %>
+  </div>
+  <div class="field">
     <%= f.label :state_id %><br>
     <%= f.select :state_id, State.all.collect{|c| [c.name, c.id]}, prompt: 'Selecione' %>
   </div>

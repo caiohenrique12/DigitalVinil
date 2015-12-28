@@ -30,6 +30,11 @@
 </p>
 
 <p>
+  <strong>Disponibilidade:</strong>
+  <%= @disk.available %>
+</p>
+
+<p>
   <strong>Status:</strong>
   <%= @disk.state.name %>
 </p>
@@ -63,7 +68,7 @@
     <%= comment.created_at %>
 </fieldset>
 <% end %>
-
+<br>
 <%= form_for Comment.new do |f| %>
   <div class="field">
     <%= f.label :name, "Nome" %><br>

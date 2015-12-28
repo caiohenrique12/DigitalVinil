@@ -10,8 +10,9 @@
       <th>Author</th>
       <th>Price</th>
       <th>Recording year</th>
+      <th>Disponibilidade</th>
       <th>Status</th>
-      <th colspan="3"></th>
+      <th colspan="3">Ação</th>
     </tr>
   </thead>
 
@@ -21,8 +22,9 @@
         <td><%= image_tag disk.image.url(:thumb) %></td>
         <td><%= disk.name %></td>
         <td><%= disk.author %></td>
-        <td><%= disk.price %></td>
+        <td><%= number_to_currency disk.price %></td>
         <td><%= disk.recording_year %></td>
+        <td><%= disk.available %></td>
         <td><%= disk.state.name %></td>
         <td><%= link_to 'Show', disk %></td>
         <td><%= link_to 'Edit', edit_disk_path(disk) %></td>

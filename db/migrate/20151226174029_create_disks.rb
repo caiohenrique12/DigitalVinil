@@ -8,6 +8,7 @@ class CreateDisks < ActiveRecord::Migration
       t.string :latitude
       t.decimal :price
       t.date :recording_year
+      t.string :available
       t.integer :state_id
 
       t.timestamps null: false
