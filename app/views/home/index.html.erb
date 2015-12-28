@@ -1,13 +1,13 @@
 <% @disks.each do |disk| %>
-  <p>
+<div class="col-md-2">
+  <div class="thumbnail">
     <%= image_tag disk.image.url(:medium), class: 'img-responsive' %>
-  </p>
-  <p>
-    <%= disk.name %>
-  </p>
-  <p>
-    <%= number_to_currency disk.price %>
-  </p>
-
-  <%= link_to "Detalhes", controller: "disks", action: "show", id: disk %>
+    <div class="caption">
+      <h4 class="text-left"><%= disk.name %></h4>
+      <h1 class="text-left"><%= number_to_currency disk.price %></h4>
+      <hr>
+      <%= link_to "Detalhes", controller: "disks", action: "show", id: disk %>
+    </div>
+  </div>
+</div>
 <% end %>

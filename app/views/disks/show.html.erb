@@ -1,90 +1,97 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @disk.name %>
-</p>
-
-<p>
-  <strong>Author:</strong>
+<div class="nome-autor">
+  <%= @disk.name %>,
   <%= @disk.author %>
-</p>
-
-<p>
-  <%= image_tag @disk.image.url(:large) %>
-</p>
-
-<p>
-  <strong>Local de Entrega:</strong>
-  <%= @disk.address %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= number_to_currency @disk.price %>
-</p>
-
-<p>
-  <strong>Recording year:</strong>
-  <%= @disk.recording_year %>
-</p>
-
-<p>
-  <strong>Disponibilidade:</strong>
-  <%= @disk.available %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @disk.state.name %>
-</p>
-
-<fieldset>
-  <legend>Entre em contato:</legend>
-  <%= form_for Order.new do |f| %>
-    <span>Interessado pelo produto ? Digite aqui seu email para entrarmos em
-    contato com vocẽ.</span>
-    <div class="field">
-      <%= f.label :name, "Seu Nome" %><br>
-      <%= f.text_field :name %>
+</div>
+<div class="col-md-6">
+  <div class="image-responsive">
+    <%= image_tag @disk.image.url(:large) %>
+  </div>
+</div>
+<div class="col-md-6">
+  <div class="dist-detalhes">
+    <div class="preco">
+      <%= number_to_currency @disk.price %>
     </div>
-    <div class="field">
-      <%= f.label :email %><br>
-      <%= f.text_field :email %>
+    <div class="ano">
+      <strong>Ano de Gravação:</strong>
+      <%= @disk.recording_year %>
     </div>
-    <div class="field">
-      <%= f.hidden_field :disk_id, :value => @disk.id %>
+    <div class="conservacao">
+      <strong>Estado de Conservação:</strong>
+      <%= @disk.state.name %>
     </div>
-    <div class="actions">
-      <%= f.submit %>
+    <div class="dispon">
+      <strong>Disponibilidade:</strong>
+      <%= @disk.available %>
     </div>
+    <div class="endereco">
+      <strong>Ponto de Entrega:</strong>
+      <%= @disk.address %>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Entre em contato
+    </div>
+    <div class="panel-body">
+      <%= form_for Order.new do |f| %>
+        <span>Interessado pelo produto ? Digite aqui seu email para entrarmos em
+        contato com você.</span>
+
+        <div class="form-group">
+          <%= f.label :name, "Seu Nome" %><br>
+          <%= f.text_field :name, class: 'form-control', placeholder: 'Nome' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :email %><br>
+          <%= f.text_field :email,  class: 'form-control', placeholder: 'Email' %>
+        </div>
+        <div class="field">
+          <%= f.hidden_field :disk_id, :value => @disk.id %>
+        </div>
+        <div class="actions">
+          <%= f.submit :class => 'btn btn-default' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="col-md-12">
+
+  <h3>Comentários</h3>
+  <% Comment.coment_usuario(@disk.id).each do |comment|  %>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <b><%= comment.name %> disse:<br></b>
+      <%= comment.text %><br>
+      <%= comment.created_at %>
+    </div>
+  </div>
   <% end %>
-</fieldset>
-
-<% Comment.coment_usuario(@disk.id).each do |comment|  %>
-<fieldset>
-  <legend><%= comment.name %> disse:</legend>
-    <%= comment.text %><br>
-    <%= comment.created_at %>
-</fieldset>
-<% end %>
-<br>
-<%= form_for Comment.new do |f| %>
-  <div class="field">
-    <%= f.label :name, "Nome" %><br>
-    <%= f.text_field :name %>
+  <h4>Deixe seu comentário:</h4>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <%= form_for Comment.new do |f| %>
+      <div class="form-group">
+        <%= f.label :name, "Nome" %><br>
+        <%= f.text_field :name, class: 'form-control', placeholder: 'Nome' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :text, "Escrever Algo" %><br>
+        <%= f.text_area :text, class: 'form-control' %>
+      </div>
+      <div class="field">
+        <%= f.hidden_field :disk_id, :value => @disk.id %>
+      </div>
+      <div class="actions">
+        <%= f.submit :class => 'btn btn-default' %>
+      </div>
+      <% end %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :text, "Escrever Algo" %><br>
-    <%= f.text_area :text %>
-  </div>
-  <div class="field">
-    <%= f.hidden_field :disk_id, :value => @disk.id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
-<%= link_to 'Edit', edit_disk_path(@disk) if can? :edit, User %> |
-<%= link_to 'Back', disks_path if can? :back, User %>
+  <%= link_to 'Edit', edit_disk_path(@disk) if can? :edit, User %>
+  <%= link_to 'Back', disks_path if can? :back, User %>
+  <br>
+  <br>
+</div>

@@ -11,40 +11,41 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: 'form-control', placeholder: 'Nome disco' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :author %><br>
-    <%= f.text_field :author %>
+    <%= f.text_field :author, class: 'form-control', placeholder: 'Nome Autor' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :image %><br>
     <%= f.file_field :image %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :address %><br>
-    <%= f.text_field :address, id: 'autocomplete', onFocus: 'geolocate()' %>
+    <%= f.text_field :address, id: 'autocomplete', onFocus: 'geolocate()', class: 'form-control', placeholder: 'Endereço do Produto' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :price %><br>
-    <%= f.text_field :price %>
+    <%= f.text_field :price, class: 'form-control', placeholder: 'Preço' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :recording_year %><br>
     <%= f.date_select :recording_year %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :available %><br>
-    <%= f.text_field :available, placeholder: 'Venda ou Troca' %>
+    <%= f.text_field :available, class: 'form-control', placeholder: 'Venda ou Troca' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :state_id %><br>
     <%= f.select :state_id, State.all.collect{|c| [c.name, c.id]}, prompt: 'Selecione' %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => 'btn btn-primary' %>
+    <%= link_to 'Back', disks_path, class: 'btn btn-default' %>
   </div>
 <% end %>
 <script>
