@@ -27,6 +27,10 @@ gem "paperclip", "~> 4.3"
 
 gem "nested_form"
 
+gem 'devise'
+
+gem 'cancancan', '~> 1.10'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

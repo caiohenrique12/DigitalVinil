@@ -9,10 +9,19 @@
 <body>
 <ul style="display: inline; padding: 15px;">
   <li><%= link_to 'Home', root_path %></li>
-  <li><%= link_to 'Cadastrar Disco', new_disk_path %></li>
-  <li><%= link_to 'Cad. Estado Conservação', new_state_path %></li>
-  <li><%= link_to 'Pedidos', orders_path %></li>
-  <li><%= link_to 'Comentários', comments_path %></li>
+  <% if user_signed_in? %>
+    <% if current_user.try(:admin?) %>
+      <li><%= link_to 'Cadastrar Disco', new_disk_path %></li>
+      <li><%= link_to 'Cad. Estado Conservação', new_state_path %></li>
+      <li><%= link_to 'Pedidos', orders_path %></li>
+      <li><%= link_to 'Comentários', comments_path %></li>
+    <% end %>
+  <% end %>
+  <% if user_signed_in? %>
+    <li><%= link_to "Sair", destroy_user_session_path, :method => :delete, class: '' %></li>
+    <% else %>
+    <li><%= link_to "Entrar", new_user_session_path %></li>
+  <% end %>
 </ul>
 <%= yield %>
 

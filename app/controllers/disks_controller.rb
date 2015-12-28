@@ -5,6 +5,7 @@ class DisksController < ApplicationController
   # GET /disks.json
   def index
     @disks = Disk.all
+    authorize! :index, Disk
   end
 
   # GET /disks/1
@@ -15,16 +16,20 @@ class DisksController < ApplicationController
   # GET /disks/new
   def new
     @disk = Disk.new
+    authorize! :new, @disk
   end
 
   # GET /disks/1/edit
   def edit
+    @disk = Disk.find(params[:id])
+    authorize! :edit, @disk
   end
 
   # POST /disks
   # POST /disks.json
   def create
     @disk = Disk.new(disk_params)
+    authorize! :create, @disk
 
     respond_to do |format|
       if @disk.save
@@ -40,6 +45,9 @@ class DisksController < ApplicationController
   # PATCH/PUT /disks/1
   # PATCH/PUT /disks/1.json
   def update
+    @disk = Disk.find(params[:id])
+    authorize! :edit, @disk
+    
     respond_to do |format|
       if @disk.update(disk_params)
         format.html { redirect_to @disk, notice: 'Disk was successfully updated.' }
