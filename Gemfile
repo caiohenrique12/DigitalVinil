@@ -25,8 +25,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem "paperclip", "~> 4.3"
 
-gem "nested_form"
-
 gem 'devise'
 
 gem 'cancancan', '~> 1.10'
