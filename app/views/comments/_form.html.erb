@@ -10,14 +10,16 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :disk_id %><br>
-    <%= f.number_field :disk_id %>
+  <div class="form-group">
+    <%= f.label :text %><br>
+    <%= f.text_area :text, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.hidden_field :disk_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

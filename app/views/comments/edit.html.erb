@@ -1,6 +1,7 @@
 <h3><%= t '.title' %></h3>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @comment %> |
+<div class="panel panel-default">
+  <div class="panel-body">
+    <%= render 'form' %>
+  </div>
+</div>
 <%= link_to 'Back', comments_path %>

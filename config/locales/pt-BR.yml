@@ -221,8 +221,13 @@ pt-BR:
     index:
       title: Lista de Pedidos
   comments:
+    new:
+      title: Comentário
     index:
       title: Lista de Comentários
+  orders:
+    new:
+      title: Pedido
   states:
     new:
       title: Criar Estado de Conservação
