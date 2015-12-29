@@ -29,7 +29,7 @@ class StatesController < ApplicationController
 
     respond_to do |format|
       if @state.save
-        format.html { redirect_to @state, notice: 'State was successfully created.' }
+        format.html { redirect_to states_url, notice: 'State was successfully created.' }
         format.json { render :show, status: :created, location: @state }
       else
         format.html { render :new }

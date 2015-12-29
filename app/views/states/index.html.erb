@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing States</h1>
+<h3><%= t '.title' %></h3>
 <div class="panel panel-default">
   <div class="panel-body">
     <div class="table-reponsive">
@@ -16,9 +16,9 @@
         <% @states.each do |state| %>
           <tr>
             <td><%= state.name %></td>
-            <td><%= link_to 'Show', state %></td>
-            <td><%= link_to 'Edit', edit_state_path(state) %></td>
-            <td><%= link_to 'Destroy', state, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to t('.show'), state %></td>
+            <td><%= link_to t('.edit'), edit_state_path(state) %></td>
+            <td><%= link_to t('.destroy'), state, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>
@@ -27,4 +27,4 @@
   </div>
 </div>
 
-<%= link_to 'New State', new_state_path, class: 'btn btn-primary' %>
+<%= link_to t('.new'), new_state_path, class: 'btn btn-primary' %>

@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20151228195040) do
     t.string   "longitude"
     t.string   "latitude"
     t.decimal  "price"
-    t.date     "recording_year"
+    t.integer  "recording_year"
     t.string   "available"
     t.integer  "state_id"
     t.datetime "created_at",         null: false

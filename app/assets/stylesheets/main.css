@@ -27,11 +27,14 @@
   display: inline;
   padding-right: 15px;
   color: white;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 900;
 }
 .menu li a {
   color: white;
+}
+.menu li a:hover {
+  color: none;
 }
 .tipos-discos {
   width: 100%;
@@ -85,7 +88,6 @@
   background-color: #F2F2F2;
   height: 300px;
   margin-bottom: 20px;
-  overflow: auto;
 }
 .nome-autor {
   font-size: 40px;
@@ -93,27 +95,27 @@
 }
 .preco {
   font-weight: 900;
-  padding: 35px 0px 0px 20px;
+  padding: 0px 0px 0px 20px;
   font-size: 70px;
   color: #46AACE;
 }
 .ano {
   font-weight: 900;
-  padding: 45px 0px 0px 20px;
+  padding: 0px 0px 0px 20px;
   font-size: 30px;
 }
 .conservacao {
   font-weight: 900;
-  padding: 30px 0px 0px 20px;
+  padding: 10px 0px 0px 20px;
   font-size: 20px;
 }
 .dispon {
   font-weight: 900;
-  padding: 30px 0px 0px 20px;
+  padding: 10px 0px 0px 20px;
   font-size: 20px;
 }
 .endereco {
-  padding: 30px 0px 0px 20px;
+  padding: 10px 0px 0px 20px;
   font-size: 20px;
 }
 .posicao-bt {
@@ -131,7 +133,7 @@
 }
 .footer {
   width: 100%;
-  height: 130px;
+  height: 150px;
   color: white;
   background-color: #035E77;
   overflow: auto;

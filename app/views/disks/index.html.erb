@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Disks</h1>
+<h3><%= t '.title' %></h3>
 <div class="panel panel-default">
   <div class="panel-body">
     <div class="table-reponsive">
@@ -28,9 +28,9 @@
               <td><%= disk.recording_year %></td>
               <td><%= disk.available %></td>
               <td><%= disk.state.name %></td>
-              <td><%= link_to 'Show', disk %></td>
-              <td><%= link_to 'Edit', edit_disk_path(disk) %></td>
-              <td><%= link_to 'Destroy', disk, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to t('.show'), disk %></td>
+              <td><%= link_to t('.edit'), edit_disk_path(disk) %></td>
+              <td><%= link_to t('.destroy'), disk, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
         </tbody>
@@ -39,4 +39,4 @@
   </div>
 </div>
 
-<%= link_to 'New Disk', new_disk_path, class: 'btn btn-primary' %>
+<%= link_to t('.new'), new_disk_path, class: 'btn btn-primary' %>
