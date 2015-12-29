@@ -1,13 +1,16 @@
 <% @disks.each do |disk| %>
-<div class="col-md-2">
+<div class="col-md-4">
   <div class="thumbnail">
     <%= image_tag disk.image.url(:medium), class: 'img-responsive' %>
     <div class="caption">
       <h4 class="text-left"><%= disk.name %></h4>
-      <h1 class="text-left"><%= number_to_currency disk.price %></h4>
+      <h1 class="text-left preco-home"><%= number_to_currency disk.price %></h4>
       <hr>
       <%= link_to "Detalhes", controller: "disks", action: "show", id: disk %>
     </div>
   </div>
 </div>
 <% end %>
+<div class="col-md-12">
+  <%= will_paginate @disks, class: 'apple_pagination' %>
+</div>

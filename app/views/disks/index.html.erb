@@ -36,7 +36,9 @@
         </tbody>
       </table>
     </div>
+    <%= will_paginate @disks, class: 'apple_pagination' %>
   </div>
 </div>
-
-<%= link_to t('.new'), new_disk_path, class: 'btn btn-primary' %>
+<div class="form-group">
+  <%= link_to t('.new'), new_disk_path, class: 'btn btn-primary' %>
+</div>

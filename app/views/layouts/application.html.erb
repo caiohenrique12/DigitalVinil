@@ -47,8 +47,8 @@
           <li><%= link_to 'Home', root_path %></li>
           <% if user_signed_in? %>
             <% if current_user.try(:admin?) %>
-              <li><%= link_to 'Discos', new_disk_path %></li>
-              <li><%= link_to 'Estado Conservação', new_state_path %></li>
+              <li><%= link_to 'Discos', disks_path %></li>
+              <li><%= link_to 'Estado Conservação', states_path %></li>
               <li><%= link_to 'Pedidos', orders_path %></li>
               <li><%= link_to 'Comentários', comments_path %></li>
             <% end %>

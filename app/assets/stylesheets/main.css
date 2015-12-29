@@ -80,6 +80,9 @@
   margin: 10px 0px 0px 0px;
   overflow: auto;
 }
+.apple_pagination {
+  margin-bottom: 20px;
+}
 .image-responsive img {
   width: 540px;
   height: 612px;
@@ -92,6 +95,10 @@
 .nome-autor {
   font-size: 40px;
   margin: 25px 0px  20px 10px;
+}
+.preco-home {
+  font-weight: 900;
+  color: #46AACE;
 }
 .preco {
   font-weight: 900;

@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    @orders = Order.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /orders/1
@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to :back, notice: 'Order was successfully created.' }
+        format.html { redirect_to :back, notice: 'Pedido encaminhado com sucesso.' }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
@@ -56,7 +56,7 @@ class OrdersController < ApplicationController
   def destroy
     @order.destroy
     respond_to do |format|
-      format.html { redirect_to orders_url, notice: 'Order was successfully destroyed.' }
+      format.html { redirect_to orders_url, notice: 'Pedido excluido com sucesso.' }
       format.json { head :no_content }
     end
   end

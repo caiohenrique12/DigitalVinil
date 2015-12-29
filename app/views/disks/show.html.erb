@@ -92,7 +92,7 @@
       <% end %>
     </div>
   </div>
-  <%= link_to 'Editar', edit_disk_path(@disk) if can? :edit, User %>
+  <%= link_to 'Editar', edit_disk_path(@disk) if can? :edit, User %> 
   <%= link_to 'Voltar', disks_path if can? :back, User %>
   <br>
   <br>
