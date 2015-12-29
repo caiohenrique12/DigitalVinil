@@ -6,6 +6,7 @@ class StatesController < ApplicationController
   # GET /states.json
   def index
     @states = State.all
+    authorize! :new, State
   end
 
   # GET /states/1

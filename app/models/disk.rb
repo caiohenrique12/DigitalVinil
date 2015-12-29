@@ -6,4 +6,10 @@ class Disk < ActiveRecord::Base
   has_many :orders
   has_many :comments
 
+  validates_presence_of :name, :author, :address, :longitude, :latitude, :image, :price, :available, :recording_year,
+                        :state_id
+
+  validates_length_of :name, :author, :address, :longitude, :latitude, :image, :price, :available, :recording_year,
+                      :state_id, allow_blank: false
+
 end

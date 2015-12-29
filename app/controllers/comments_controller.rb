@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
   # GET /comments.json
   def index
     @comments = Comment.paginate(:page => params[:page], :per_page => 10)
+    authorize! :new, @comments
   end
 
   # GET /comments/1

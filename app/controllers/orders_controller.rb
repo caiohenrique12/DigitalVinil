@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     @orders = Order.paginate(:page => params[:page], :per_page => 10)
+    authorize! :new, @orders
   end
 
   # GET /orders/1

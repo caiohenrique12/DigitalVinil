@@ -5,7 +5,7 @@ class DisksController < ApplicationController
   # GET /disks.json
   def index
     @disks = Disk.paginate(:page => params[:page], :per_page => 5)
-    authorize! :index, Disk
+    authorize! :new, Disk
   end
 
   # GET /disks/1
