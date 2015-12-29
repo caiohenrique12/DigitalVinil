@@ -1,0 +1,80 @@
+<%= form_for(@disk) do |f| %>
+  <% if @disk.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@disk.errors.count, "error") %> prohibited this disk from being saved:</h2>
+
+      <ul>
+      <% @disk.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: 'form-control', placeholder: 'Nome disco' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :author %><br>
+    <%= f.text_field :author, class: 'form-control', placeholder: 'Nome Autor' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+  </div>
+  <div class="form-group">
+    <%= f.label :address %><br>
+    <%= f.text_field :address, id: 'autocomplete', onFocus: 'geolocate()', class: 'form-control', placeholder: 'Endereço do Produto' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :price %><br>
+    <%= f.text_field :price, class: 'form-control', placeholder: 'Preço' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :recording_year %><br>
+    <%= f.number_field :recording_year, class: 'form-control', placeholder: 'Ano de Gravação' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :available %><br>
+    <%= f.text_field :available, class: 'form-control', placeholder: 'Venda ou Troca' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :state_id %><br>
+    <%= f.select :state_id, State.all.collect{|c| [c.name, c.id]}, prompt: 'Selecione' %>
+  </div>
+  <div class="actions">
+    <%= f.submit :class => 'btn btn-primary' %>
+    <%= link_to 'Voltar', disks_path, class: 'btn btn-default' %>
+  </div>
+<% end %>
+<script>
+
+  var placeSearch, autocomplete;
+
+  function initAutocomplete() {
+    autocomplete = new google.maps.places.Autocomplete(
+    (document.getElementById('autocomplete')),
+    {types: ['geocode']});
+    autocomplete.addListener('place_changed', fillInAddress);
+  }
+
+  function geolocate() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var geolocation = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        var circle = new google.maps.Circle({
+          center: geolocation,
+          radius: position.coords.accuracy
+        });
+        autocomplete.setBounds(circle.getBounds());
+      });
+    }
+  }
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?signed_in=true&libraries=places&callback=initAutocomplete"
+async defer></script>

@@ -5,10 +5,67 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+<div class="container">
+  <div class="col-md-12">
+    <div class="row">
+      <%= image_tag("logo2.jpg") %>
 
-<%= yield %>
-
+      <div class="menu">
+        <ul>
+          <li><%= link_to 'Home', root_path %></li>
+          <% if user_signed_in? %>
+            <% if current_user.try(:admin?) %>
+              <li><%= link_to 'Cadastrar Disco', new_disk_path %></li>
+              <li><%= link_to 'Estado Conservação', new_state_path %></li>
+              <li><%= link_to 'Pedidos', orders_path %></li>
+              <li><%= link_to 'Comentários', comments_path %></li>
+            <% end %>
+          <% end %>
+          <% if user_signed_in? %>
+          <li><%= link_to "Minha Conta", edit_user_registration_path %></li>
+          <li><%= link_to "Sair", destroy_user_session_path, :method => :delete, class: '' %></li>
+          <% else %>
+          <li><%= link_to "Entrar", new_user_session_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="produtos">
+      <%= yield %>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="col-md-6">
+      <div class="menu-remissivo">
+        <b>Digital Vinil</b>
+        <ul>
+          <li><%= link_to 'Home', root_path %></li>
+          <% if user_signed_in? %>
+            <% if current_user.try(:admin?) %>
+              <li><%= link_to 'Discos', disks_path %></li>
+              <li><%= link_to 'Estado Conservação', states_path %></li>
+              <li><%= link_to 'Pedidos', orders_path %></li>
+              <li><%= link_to 'Comentários', comments_path %></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="menu-remissivo">
+        <b>Informações Gerais</b>
+        <ul>
+          <li>Email: caiohenriqueads@gmail.com</li>
+          <li><a href="https://github.com/caiohenrique12">Meu GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</div>
 </body>
 </html>

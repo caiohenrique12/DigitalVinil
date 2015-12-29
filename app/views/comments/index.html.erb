@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h3><%= t'.title' %></h3>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="table-reponsive">
+      <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Comentário</th>
+          <th>Disco</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @comments.each do |comment| %>
+          <tr>
+            <td><%= comment.name %></td>
+            <td><%= comment.text %></td>
+            <td><%= comment.disk.name %></td>
+            <td><%= link_to 'Excluir', comment, method: :delete, data: { confirm: 'Você tem certeza' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+    <%= will_paginate @comments, class: 'apple_pagination' %>
+  </div>
+</div>
+<!--
+<%= link_to 'New Comment', new_comment_path, class: 'btn btn-primary' %>
+-->
